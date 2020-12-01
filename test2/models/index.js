@@ -9,6 +9,7 @@ var db = {}
 var config = {
   host: process.env.MSSQL_SERVER,
   dialect: 'mssql',
+  logging: false,
   pool: {
     max: 5,
     min: 0,
