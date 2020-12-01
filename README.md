@@ -29,3 +29,18 @@ Note:  Generators are usually run using the globally-installed `sails` CLI (comm
 - [sails-hook-sequelize](https://www.npmjs.com/package/sails-hook-sequelize)
 - [sequelize-auto](https://www.npmjs.com/package/sequelize-auto)
 - [sailsjs-sequelize-example](https://github.com/festo/sailsjs-sequelize-example)
+- [SQL Server and Node with Sequelize](http://nataliesmith.ca/blog/2018-05-01-sqlserver-node-sequelize/)
+- [sequelize-cli](https://www.npmjs.com/package/sequelize-cli)
+- [Using Sequelize ORM with Node.js and Express](https://stackabuse.com/using-sequelize-orm-with-nodejs-and-express/)
+- [node-mssql-examples](https://github.com/stevenalexander/node-mssql-examples)
+- [Basic Sequelize + Express example](https://github.com/sequelize/express-example)
+
+
+
+## CLI : 
+
+- `npx sequelize init:models`
+
+## Doc: 
+- https://viblo.asia/p/sequelize-javascript-orm-cho-nodejs-l0rvmmJDvyqA
+- https://sequelize.org/v3/
