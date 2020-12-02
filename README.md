@@ -3,7 +3,7 @@
 a [Sails v1](https://sailsjs.com) application
 
 
-### Links
+## Links
 
 + [Sails framework documentation](https://sailsjs.com/get-started)
 + [Version notes / upgrading](https://sailsjs.com/documentation/upgrading)
@@ -12,7 +12,7 @@ a [Sails v1](https://sailsjs.com) application
 + [Professional / enterprise options](https://sailsjs.com/enterprise)
 
 
-### Version info
+## Version info
 
 This app was originally generated on Mon Nov 30 2020 22:40:38 GMT+0700 (Indochina Time) using Sails v1.4.0.
 
@@ -35,12 +35,20 @@ Note:  Generators are usually run using the globally-installed `sails` CLI (comm
 - [node-mssql-examples](https://github.com/stevenalexander/node-mssql-examples)
 - [Basic Sequelize + Express example](https://github.com/sequelize/express-example)
 
-
+---
 
 ## CLI : 
 
 - `npx sequelize init:models`
+- 
+
+---
 
 ## Doc: 
 - https://viblo.asia/p/sequelize-javascript-orm-cho-nodejs-l0rvmmJDvyqA
 - https://sequelize.org/v3/
+- 
+
+---
+
+[toc]

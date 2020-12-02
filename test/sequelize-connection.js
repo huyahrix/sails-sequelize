@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('DRD02V41', 'sa', '@abc123@', {
-    host: '10.0.0.12',
+
+const sequelize = new Sequelize('lemonsys', 'sa', '@abc123@', {
+    host: '127.0.0.1',
     dialect: 'mssql',
     dialectOptions: {
         encrypt: true
