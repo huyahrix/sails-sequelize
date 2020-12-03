@@ -7,6 +7,7 @@ const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
 
 // var config = {
+//   server:process.env.MSSQL_SERVER,
 //   host: process.env.MSSQL_SERVER,
 //   dialect: 'mssql',
 //   logging: false,
@@ -21,19 +22,58 @@ const env = process.env.NODE_ENV || 'development';
 //   }
 // }
 
-var config = {
-  host: process.env.MSSQL_SERVER,
-    dialect: 'mssql',
-    define: {
-        underscored: false,
-        freezeTableName: true,
-        charset: 'utf8',
-        dialectOptions: {
-            collate: 'utf8_general_ci'
-        },
-        timestamps: false
+// const config = {
+//   host: "localhost",
+//   port: 1433,
+//   dialect: 'mssql',
+//   user: process.env.DHR_DB_USER,
+//   password: process.env.DHR_DB_PASS,
+//   server: 'localhost',
+//   database: 'DRD02V41',
+//   pool: {
+//       max: 10,
+//       min: 0,
+//       idleTimeoutMillis: 30000
+//   }
+// }
+
+const config = {
+  dialect: 'mssql',
+  host: process.env.DHR_DB_SERVER,
+  //host: '127.0.0.1',
+  port: 1433,
+  logging: false,
+  dialectOptions: {
+    options: {
+      encrypt: true,
+      // trustServerCertificate: false,
+      // hostNameInCertificate: '*.database.windows.net',
+      loginTimeout: 30,
+      validateBulkLoadParameters: true
     },
+  },
+  pool: {
+    max: 5,
+    min: 0,
+    acquire: 30000,
+    idle: 10000,
+  },
 }
+
+// var config = {
+//   host: process.env.MSSQL_SERVER,
+//     dialect: 'mssql',
+//     define: {
+//         underscored: false,
+//         freezeTableName: true,
+//         charset: 'utf8',
+//         dialectOptions: {
+//             collate: 'utf8_general_ci'
+//         },
+//         timestamps: false
+//     },
+// }
+
 const db = {};
 
 let sequelize;
@@ -61,5 +101,5 @@ Object.keys(db).forEach(modelName => {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
-console.log(db);
+
 module.exports = db;

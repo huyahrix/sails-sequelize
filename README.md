@@ -34,6 +34,7 @@ Note:  Generators are usually run using the globally-installed `sails` CLI (comm
 - [Using Sequelize ORM with Node.js and Express](https://stackabuse.com/using-sequelize-orm-with-nodejs-and-express/)
 - [node-mssql-examples](https://github.com/stevenalexander/node-mssql-examples)
 - [Basic Sequelize + Express example](https://github.com/sequelize/express-example)
+- [sequelize-express-example](https://github.com/shaishab/sequelize-express-example)
 
 ---
 

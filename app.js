@@ -28,6 +28,7 @@ process.chdir(__dirname);
 
 const dotenv = require('dotenv');
 dotenv.config();
+var db = require('./api/models');
 
 // Attempt to import `sails` dependency, as well as `rc` (for loading `.sailsrc` files).
 var sails;
@@ -35,6 +36,18 @@ var rc;
 try {
   sails = require('sails');
   rc = require('sails/accessible/rc');
+
+  db.sequelize.sync()
+    .then(() => {
+      // Start server
+      sails.lift(rc('sails'));
+      console.log('Connection has been established successfully.');
+    })
+    .catch(err => {
+      console.error('Unable to connect to the database:', err);
+    });
+
+
 } catch (err) {
   console.error('Encountered an error when attempting to require(\'sails\'):');
   console.error(err.stack);
@@ -49,7 +62,3 @@ try {
   console.error('(It even uses your app directory\'s local Sails install, if possible.)');
   return;
 }//-•
-
-
-// Start server
-sails.lift(rc('sails'));
