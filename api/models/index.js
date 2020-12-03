@@ -5,29 +5,42 @@ const path = require('path');
 const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
-// const config = require(__dirname + '/../config/config.json')[env];
-const config = process.env;
+
+// var config = {
+//   host: process.env.MSSQL_SERVER,
+//   dialect: 'mssql',
+//   logging: false,
+//   pool: {
+//     max: 5,
+//     min: 0,
+//     acquire: 30000,
+//     idle: 10000
+//   },
+//   dialectOptions: {
+//     encrypt: true
+//   }
+// }
+
 var config = {
   host: process.env.MSSQL_SERVER,
-  dialect: 'mssql',
-  logging: false,
-  pool: {
-    max: 5,
-    min: 0,
-    acquire: 30000,
-    idle: 10000
-  },
-  dialectOptions: {
-    encrypt: true
-  }
+    dialect: 'mssql',
+    define: {
+        underscored: false,
+        freezeTableName: true,
+        charset: 'utf8',
+        dialectOptions: {
+            collate: 'utf8_general_ci'
+        },
+        timestamps: false
+    },
 }
 const db = {};
 
 let sequelize;
-if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
+if (process.env.use_env_variable) {
+  sequelize = new Sequelize(process.env[process.env.use_env_variable], config);
 } else {
-  sequelize = new Sequelize(config.DHR_DB_NAME, config.DHR_DB_USER, config.DHR_DB_PASS, config);
+  sequelize = new Sequelize(process.env.DHR_DB_NAME, process.env.DHR_DB_USER, process.env.DHR_DB_PASS, config);
 }
 
 fs
@@ -48,5 +61,5 @@ Object.keys(db).forEach(modelName => {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
-
+console.log(db);
 module.exports = db;
